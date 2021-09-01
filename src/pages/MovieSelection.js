@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import PageTitle from "../components/common/PageTitle";
+
 
 export default function MovieSelection() {
 	const [list, setList] = useState([]);
@@ -11,7 +13,6 @@ export default function MovieSelection() {
 		const request = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies");
 		request.then(res => {
 			setList(res.data);
-			console.log(res.data);
 		});
 		request.catch(() => alert("Ocorreu um erro na obtenção da lista de filmes. Tente novamente mais tarde."));
 	},[]);
@@ -22,7 +23,7 @@ export default function MovieSelection() {
 			<MovieList>
 				{list.map(l => (
 					<Frame key={l.id}>
-						
+						<img src={l.posterURL} alt={l.title} />
 					</Frame>
 				))}
 			</MovieList>
@@ -47,4 +48,9 @@ const Frame = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    img{
+        width: 129px;
+        height: 193px;
+    }
 `;
