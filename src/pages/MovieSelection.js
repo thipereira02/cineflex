@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 import PageTitle from "../components/common/PageTitle";
-
+import { Link } from "react-router-dom";
 
 export default function MovieSelection() {
 	const [list, setList] = useState([]);
@@ -23,7 +22,9 @@ export default function MovieSelection() {
 			<MovieList>
 				{list.map(l => (
 					<Frame key={l.id}>
-						<img src={l.posterURL} alt={l.title} />
+						<Link to={`/sessions/${l.id}`}>
+							<img src={l.posterURL} alt={l.title} />
+						</Link>
 					</Frame>
 				))}
 			</MovieList>
