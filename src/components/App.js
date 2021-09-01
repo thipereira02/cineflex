@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import GlobalStyle from "./GlobalStyle";
-import Header from "./common/Header";
+import GlobalStyle from "./common/GlobalStyle";
+import Header from "./Header";
 import MovieSelection from "../pages/MovieSelection";
 import Sessions from "../pages/Sessions";
 
