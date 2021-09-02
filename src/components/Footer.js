@@ -2,9 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Footer(props) {
-	const { url, title } = props;
-
+export default function Footer({ url, title, day, hour }) {
 	return (
 		<Container>
 			<Frame>
@@ -14,6 +12,9 @@ export default function Footer(props) {
 				<Text>
 					{title}
 				</Text>				
+				<Text>
+					{day} - {hour}
+				</Text>	
 			</Infos>
 		</Container>
 	);
