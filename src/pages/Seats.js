@@ -6,14 +6,13 @@ import axios from "axios";
 import PageTitle from "../components/common/PageTitle";
 import Body from "../components/common/Body";
 import Legend from "../components/Legend";
+import Forms from "../components/Forms";
 import Footer from "../components/Footer";
 
 export default function Seats() {
 	const { sessionId } = useParams();
 	const [session, setSession] = useState(false);
 	const [selectedSeats, setSelectedSeats] = useState([]);
-
-	console.log(selectedSeats);
 
 	useEffect(() => {
 		const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${sessionId}/seats`);
@@ -51,6 +50,7 @@ export default function Seats() {
 					))}
 				</RoomMap>
 				<Legend />
+				<Forms selectedSeats={selectedSeats} />
 			</Body>
 			<Footer 
 				url={session.movie.posterURL}
