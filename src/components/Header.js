@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Header() {
 	return (
 		<Title>
-			<h1>CINEFLEX</h1>
+			<Link to="/">
+				<h1>CINEFLEX</h1>
+			</Link>
 		</Title>
 	);
 }
