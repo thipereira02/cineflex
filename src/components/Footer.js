@@ -9,12 +9,14 @@ export default function Footer({ url, title, day, hour }) {
 				<img src={url} alt={title} />
 			</Frame>
 			<Infos>
-				<Text>
+				<h2>
 					{title}
-				</Text>				
-				<Text>
-					{day} - {hour}
-				</Text>	
+				</h2>
+				{day===undefined && hour===undefined ? "" : 				
+					<h2>
+						{day} - {hour}
+					</h2>
+				}
 			</Infos>
 		</Container>
 	);
@@ -53,11 +55,11 @@ const Frame = styled.div`
 const Infos = styled.div`
     display: flex;
     flex-direction: column;
-`;
 
-const Text = styled.h2`
-    color: #293845;
-    font-size: 26px;
-    line-height: 30px;
-    margin-right: 10px;
+    h2 {
+        color: #293845;
+        font-size: 26px;
+        line-height: 30px;
+        margin-right: 10px;
+    }
 `;
