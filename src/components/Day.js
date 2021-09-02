@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Day({ day }) {
@@ -10,9 +11,11 @@ export default function Day({ day }) {
 			</Date>
 			<SessionHour>
 				{day.showtimes.map(d => (
-					<Schedules key={d.id}>
-						{d.name}
-					</Schedules>
+					<Link to={`/seats/${d.id}`} key={d.id}>
+						<Schedules >
+							{d.name}
+						</Schedules>
+					</Link>
 				))}
 			</SessionHour>
 		</>
