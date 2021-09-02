@@ -5,6 +5,7 @@ import GlobalStyle from "./common/GlobalStyle";
 import Header from "./Header";
 import MovieSelection from "../pages/MovieSelection";
 import Sessions from "../pages/Sessions";
+import Seats from "../pages/Seats";
 
 export default function App() {
 	return (
@@ -18,6 +19,9 @@ export default function App() {
 					</Route>
 					<Route path="/sessions/:movieId" exact>
 						<Sessions />
+					</Route>
+					<Route path="/seats/:sessionId" exact>
+						<Seats />
 					</Route>
 				</Switch>
 			</BrowserRouter>
