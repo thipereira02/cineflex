@@ -11,6 +11,9 @@ import Footer from "../components/Footer";
 export default function Seats() {
 	const { sessionId } = useParams();
 	const [session, setSession] = useState(false);
+	const [selectedSeats, setSelectedSeats] = useState([]);
+
+	console.log(selectedSeats);
 
 	useEffect(() => {
 		const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${sessionId}/seats`);
@@ -23,13 +26,26 @@ export default function Seats() {
 		return "Carregando";
 	}
 
+	function selectSeat(seat) {
+		if (seat.isAvailable===false){
+			alert("Este assento está indisponível");
+			return; 
+		} 
+
+		if (!selectedSeats.includes(seat)) {
+			setSelectedSeats([...selectedSeats, seat]);
+		} else {
+			selectedSeats.filter(s => s!==seat);
+		}
+	}
+
 	return (
 		<>
 			<PageTitle text={"Selecione o(s) assento(s)"} />
 			<Body>
 				<RoomMap>
 					{session.seats.map(s => (
-						<Seat key={s.id} name={s.isAvailable ? "true" : "false"} >
+						<Seat key={s.id} name={s.isAvailable ? "true" : "false"} select={selectedSeats.includes(s)} onClick={() => selectSeat(s)} >
 							{s.name}
 						</Seat>
 					))}
