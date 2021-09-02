@@ -35,7 +35,7 @@ export default function Seats() {
 		if (!selectedSeats.includes(seat)) {
 			setSelectedSeats([...selectedSeats, seat]);
 		} else {
-			selectedSeats.filter(s => s!==seat);
+			setSelectedSeats(selectedSeats.filter(s => s!==seat));
 		}
 	}
 
