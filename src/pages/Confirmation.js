@@ -4,9 +4,8 @@ import styled from "styled-components";
 
 import Body from "../components/common/Body";
 
-export default function Confirmation({ finalOrder, selectedSeats }) {
-	console.log(finalOrder);
-	console.log(selectedSeats);
+export default function Confirmation({ finalOrder, selectedSeats, buyer }) {
+	console.log(buyer);
 
 	return (
 		<>
@@ -32,11 +31,11 @@ export default function Confirmation({ finalOrder, selectedSeats }) {
                     Comprador
 				</Subtitle>
 				<Content>
-                    Nome: <br/>CPF: 
+                    Nome: {buyer.name}<br/>CPF: {buyer.cpf}
 				</Content>
 			</Body>
-			<Button >
-            Voltar pra Home
+			<Button>
+				Voltar pra Home
 			</Button>
 		</>
 	);

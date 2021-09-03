@@ -11,6 +11,7 @@ import Confirmation from "../pages/Confirmation";
 export default function App() {
 	const [finalOrder, setFinalOrder] = useState([]);
 	const [selectedSeats, setSelectedSeats] = useState([]);
+	const [buyer, setBuyer] = useState([]);
 
 	return (
 		<>
@@ -29,13 +30,15 @@ export default function App() {
 							finalOrder={finalOrder}
 							setFinalOrder={setFinalOrder} 
 							selectedSeats={selectedSeats} 
-							setSelectedSeats={setSelectedSeats} 
+							setSelectedSeats={setSelectedSeats}
+							setBuyer={setBuyer} 
 						/>
 					</Route>
 					<Route path="/confirmation" exact>
 						<Confirmation 
 							finalOrder={finalOrder}
 							selectedSeats={selectedSeats}
+							buyer={buyer}
 						/>
 					</Route>
 				</Switch>

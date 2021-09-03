@@ -10,7 +10,7 @@ import Legend from "../components/Legend";
 import Forms from "../components/Forms";
 import Footer from "../components/Footer";
 
-export default function Seats({ finalOrder, setFinalOrder, selectedSeats, setSelectedSeats }) {
+export default function Seats({ finalOrder, setFinalOrder, selectedSeats, setSelectedSeats, setBuyer }) {
 	const { sessionId } = useParams();
 	const [session, setSession] = useState(false);
 
@@ -51,7 +51,11 @@ export default function Seats({ finalOrder, setFinalOrder, selectedSeats, setSel
 					))}
 				</RoomMap>
 				<Legend />
-				<Forms selectedSeats={selectedSeats} finalOrder={finalOrder} />
+				<Forms 
+					selectedSeats={selectedSeats} 
+					finalOrder={finalOrder} 
+					setBuyer={setBuyer}
+				/>
 			</Body>
 			<Footer 
 				url={session.movie.posterURL}
