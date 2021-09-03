@@ -16,7 +16,6 @@ export default function Seats({ finalOrder, setFinalOrder, selectedSeats, setSel
 	const [session, setSession] = useState(false);
 	const location = useLocation();
 	const {movieId} = location.state;
-	console.log(movieId);
 
 	useEffect(() => {
 		const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${sessionId}/seats`);
