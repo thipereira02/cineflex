@@ -37,8 +37,11 @@ export default function App() {
 					<Route path="/confirmation" exact>
 						<Confirmation 
 							finalOrder={finalOrder}
+							setFinalOrder={setFinalOrder}
 							selectedSeats={selectedSeats}
+							setSelectedSeats={setSelectedSeats}
 							buyer={buyer}
+							setBuyer={setBuyer}
 						/>
 					</Route>
 				</Switch>

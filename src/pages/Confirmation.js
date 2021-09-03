@@ -1,11 +1,19 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import { useHistory } from "react-router";
 import styled from "styled-components";
 
 import Body from "../components/common/Body";
 
-export default function Confirmation({ finalOrder, selectedSeats, buyer }) {
-	console.log(buyer);
+export default function Confirmation({ finalOrder, setFinalOrder, selectedSeats, setSelectedSeats, buyer, setBuyer }) {
+	const history = useHistory();
+
+	function backtoHome(){
+		setFinalOrder([]);
+		setSelectedSeats([]);
+		setBuyer([]);
+		history.push("/");
+	}
 
 	return (
 		<>
@@ -34,7 +42,7 @@ export default function Confirmation({ finalOrder, selectedSeats, buyer }) {
                     Nome: {buyer.name}<br/>CPF: {buyer.cpf}
 				</Content>
 			</Body>
-			<Button>
+			<Button onClick={backtoHome}>
 				Voltar pra Home
 			</Button>
 		</>
