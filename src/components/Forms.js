@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { useHistory } from "react-router";
 
 export default function Forms({ selectedSeats }) {
+	const history = useHistory();
 	const [name, setName] = useState("");
 	const [cpf, setCpf] = useState("");
 	const ids = selectedSeats.map(s => s.id);
@@ -12,8 +14,8 @@ export default function Forms({ selectedSeats }) {
 		e.preventDefault();
 
 		const request = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many", {ids, name, cpf});
-		request.then(res => {
-			console.log(res.data);
+		request.then(() => {
+			history.push("/confirmation");
 		});
 		request.catch(() => alert("Ocorreu um erro. Reserva não realizada."));
 	}

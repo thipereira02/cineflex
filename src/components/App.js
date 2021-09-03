@@ -6,6 +6,7 @@ import Header from "./Header";
 import MovieSelection from "../pages/MovieSelection";
 import Sessions from "../pages/Sessions";
 import Seats from "../pages/Seats";
+import Confirmation from "../pages/Confirmation";
 
 export default function App() {
 	return (
@@ -22,6 +23,9 @@ export default function App() {
 					</Route>
 					<Route path="/seats/:sessionId" exact>
 						<Seats />
+					</Route>
+					<Route path="/confirmation" exact>
+						<Confirmation />
 					</Route>
 				</Switch>
 			</BrowserRouter>
