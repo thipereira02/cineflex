@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import GlobalStyle from "./common/GlobalStyle";
@@ -9,7 +9,8 @@ import Seats from "../pages/Seats";
 import Confirmation from "../pages/Confirmation";
 
 export default function App() {
-	const finalOrder = [];
+	const [finalOrder, setFinalOrder] = useState([]);
+	const [selectedSeats, setSelectedSeats] = useState([]);
 
 	return (
 		<>
@@ -24,10 +25,18 @@ export default function App() {
 						<Sessions />
 					</Route>
 					<Route path="/seats/:sessionId" exact>
-						<Seats finalOrder={finalOrder} />
+						<Seats 
+							finalOrder={finalOrder}
+							setFinalOrder={setFinalOrder} 
+							selectedSeats={selectedSeats} 
+							setSelectedSeats={setSelectedSeats} 
+						/>
 					</Route>
 					<Route path="/confirmation" exact>
-						<Confirmation finalOrder={finalOrder} />
+						<Confirmation 
+							finalOrder={finalOrder}
+							selectedSeats={selectedSeats}
+						/>
 					</Route>
 				</Switch>
 			</BrowserRouter>

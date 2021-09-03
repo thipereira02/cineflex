@@ -4,7 +4,9 @@ import styled from "styled-components";
 
 import Body from "../components/common/Body";
 
-export default function Confirmation({ finalOrder }) {
+export default function Confirmation({ finalOrder, selectedSeats }) {
+	console.log(finalOrder);
+	console.log(selectedSeats);
 
 	return (
 		<>
@@ -16,14 +18,16 @@ export default function Confirmation({ finalOrder }) {
                     Filme e sessão
 				</Subtitle>
 				<Content>
-					{finalOrder[0].movie.title}<br/>{finalOrder[0].day.date} {finalOrder[0].name}
+					{finalOrder.movie.title}<br/>{finalOrder.day.date} {finalOrder.name}
 				</Content>
 				<Subtitle>
                     Ingressos
 				</Subtitle>
-				<Content >
-                    Assento: 
-				</Content>
+				{selectedSeats.map(s => (
+					<Content key={s.id} >
+						Assento: {s.name}
+					</Content>
+				))}
 				<Subtitle>
                     Comprador
 				</Subtitle>

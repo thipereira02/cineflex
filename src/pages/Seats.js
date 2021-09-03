@@ -10,16 +10,15 @@ import Legend from "../components/Legend";
 import Forms from "../components/Forms";
 import Footer from "../components/Footer";
 
-export default function Seats({ finalOrder }) {
+export default function Seats({ finalOrder, setFinalOrder, selectedSeats, setSelectedSeats }) {
 	const { sessionId } = useParams();
 	const [session, setSession] = useState(false);
-	const [selectedSeats, setSelectedSeats] = useState([]);
 
 	useEffect(() => {
 		const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${sessionId}/seats`);
 		request.then(res => {
 			setSession(res.data);
-			finalOrder.push(res.data);
+			setFinalOrder(res.data);
 		});
 	},[]);
 
