@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import GlobalStyle from "./common/GlobalStyle";
-import Header from "./Header";
+import Header from "./common/Header";
 import MovieSelection from "../pages/MovieSelection";
 import Sessions from "../pages/Sessions";
 import Seats from "../pages/Seats";

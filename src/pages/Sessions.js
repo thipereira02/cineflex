@@ -6,6 +6,7 @@ import PageTitle from "../components/common/PageTitle";
 import Body from "../components/common/Body";
 import Footer from "../components/Footer";
 import Day from "../components/Day";
+import BackButton from "../components/BackButton";
 
 export default function Sessions() {
 	const { movieId } = useParams();
@@ -23,10 +24,11 @@ export default function Sessions() {
 
 	return (
 		<>
+			<BackButton page={""}/>
 			<PageTitle text={"Selecione o horário"} />
 			<Body>
 				{sessions!==false && sessions.days.map(s => (
-					<Day key={s.id} day={s} />
+					<Day key={s.id} day={s} movieId={movieId} />
 				))}
 			</Body>
 			<Footer url={sessions.posterURL} title={sessions.title} />

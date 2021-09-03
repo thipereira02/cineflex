@@ -11,7 +11,6 @@ export default function PageTitle({ text }) {
 }
 
 const Title = styled.h1`
-    margin-top: 100px;
     text-align: center;
     font-size: 24px;
     color: #293845;

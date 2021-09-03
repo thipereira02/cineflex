@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export default function Day({ day }) {
+export default function Day({ day, movieId }) {
 	return (
 		<>
 			<Date>
@@ -11,7 +11,7 @@ export default function Day({ day }) {
 			</Date>
 			<SessionHour>
 				{day.showtimes.map(d => (
-					<Link to={`/seats/${d.id}`} key={d.id}>
+					<Link to={{pathname:`/seats/${d.id}`, state: {movieId: movieId}}} key={d.id}>
 						<Schedules >
 							{d.name}
 						</Schedules>

@@ -18,6 +18,7 @@ export default function MovieSelection() {
 
 	return (
 		<>
+			<Space />
 			<PageTitle text={"Selecione o filme"} />
 			<MovieList>
 				{list.map(l => (
@@ -31,6 +32,10 @@ export default function MovieSelection() {
 		</>
 	);
 }
+
+const Space = styled.div`
+	margin-top: 100px;
+`;
 
 const MovieList = styled.div`
     margin: 35px auto 0 auto;
