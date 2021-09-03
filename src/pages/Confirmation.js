@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import styled from "styled-components";
 
 import Body from "../components/common/Body";
 
-export default function Confirmation() {
+export default function Confirmation({ finalOrder }) {
+
 	return (
 		<>
 			<Title>
@@ -14,7 +16,7 @@ export default function Confirmation() {
                     Filme e sessão
 				</Subtitle>
 				<Content>
-
+					{finalOrder[0].movie.title}<br/>{finalOrder[0].day.date} {finalOrder[0].name}
 				</Content>
 				<Subtitle>
                     Ingressos

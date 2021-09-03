@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router";
@@ -9,7 +10,7 @@ import Legend from "../components/Legend";
 import Forms from "../components/Forms";
 import Footer from "../components/Footer";
 
-export default function Seats() {
+export default function Seats({ finalOrder }) {
 	const { sessionId } = useParams();
 	const [session, setSession] = useState(false);
 	const [selectedSeats, setSelectedSeats] = useState([]);
@@ -18,6 +19,7 @@ export default function Seats() {
 		const request = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${sessionId}/seats`);
 		request.then(res => {
 			setSession(res.data);
+			finalOrder.push(res.data);
 		});
 	},[]);
 
@@ -50,7 +52,7 @@ export default function Seats() {
 					))}
 				</RoomMap>
 				<Legend />
-				<Forms selectedSeats={selectedSeats} />
+				<Forms selectedSeats={selectedSeats} finalOrder={finalOrder} />
 			</Body>
 			<Footer 
 				url={session.movie.posterURL}

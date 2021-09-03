@@ -9,6 +9,8 @@ import Seats from "../pages/Seats";
 import Confirmation from "../pages/Confirmation";
 
 export default function App() {
+	const finalOrder = [];
+
 	return (
 		<>
 			<GlobalStyle />
@@ -22,10 +24,10 @@ export default function App() {
 						<Sessions />
 					</Route>
 					<Route path="/seats/:sessionId" exact>
-						<Seats />
+						<Seats finalOrder={finalOrder} />
 					</Route>
 					<Route path="/confirmation" exact>
-						<Confirmation />
+						<Confirmation finalOrder={finalOrder} />
 					</Route>
 				</Switch>
 			</BrowserRouter>
