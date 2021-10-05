@@ -2,6 +2,8 @@
 
 An application for cinemas where you can view the movies in theaters and buy your tickets.
 
+<img position="center" src="./public/assets/cineflix.gif" alt="GIF" />
+
 Try it out now at https://cineflex-orcin.vercel.app/
 
 ## Features
